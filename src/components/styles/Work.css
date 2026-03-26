@@ -30,8 +30,8 @@
 .carousel-track-container {
   overflow: hidden;
   width: 100%;
-  border-top: 1px solid #363636;
-  border-bottom: 1px solid #363636;
+  border-top: 1px solid var(--borderColor);
+  border-bottom: 1px solid var(--borderColor);
 }
 
 .carousel-track {
@@ -83,7 +83,7 @@
 
 .carousel-category {
   font-weight: 200;
-  color: #adacac;
+  color: var(--mutedText);
   margin: 0;
   font-size: 16px;
 }
@@ -102,7 +102,7 @@
 
 .carousel-tools p {
   font-weight: 200;
-  color: #adacac;
+  color: var(--mutedText);
   margin: 6px 0 0;
   font-size: 15px;
 }
@@ -122,7 +122,7 @@
   z-index: 10;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #eae5ec;
+  color: var(--textColor);
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -180,6 +180,48 @@
   box-shadow: 0 0 8px rgba(94, 234, 212, 0.4);
 }
 
+.repo-list {
+  margin-top: 48px;
+}
+
+.repo-list h3 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.repo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.repo-card {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.25s ease;
+}
+
+.repo-card:hover {
+  border-color: var(--accentColor);
+  transform: translateY(-2px);
+  background: rgba(94, 234, 212, 0.08);
+}
+
+.repo-card h4 {
+  font-size: 15px;
+  margin: 0;
+  word-break: break-word;
+}
+
+.repo-card p {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: var(--mutedText);
+}
+
 /* ── Work Image (reused) ── */
 .work-image {
   display: flex;
@@ -204,7 +246,7 @@
   align-items: center;
   font-size: 25px;
   box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.5),
-    inset 0px 0px 10px 0px #393939;
+    inset 0px 0px 10px 0px rgba(255, 131, 101, 0.28);
   transition: 0.3s;
   opacity: 0;
 }
@@ -223,7 +265,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  background-color: #000;
+  background-color: #0f0a1d;
   object-fit: cover;
 }
 
@@ -327,5 +369,9 @@
 
   .work-image img {
     max-height: 250px;
+  }
+
+  .repo-list h3 {
+    font-size: 22px;
   }
 }

@@ -6,8 +6,11 @@ export function initialFX() {
   document.body.style.overflowY = "auto";
   smoother.paused(false);
   document.getElementsByTagName("main")[0].classList.add("main-active");
+  const bgColor = getComputedStyle(document.documentElement)
+    .getPropertyValue("--backgroundColor")
+    .trim();
   gsap.to("body", {
-    backgroundColor: "#0a0e17",
+    backgroundColor: bgColor,
     duration: 0.5,
     delay: 1,
   });

@@ -15,43 +15,43 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Full Stack Developer</h4>
-                <h5>Ikshan</h5>
+                <h4>Foundational Developer Journey</h4>
+                <h5>Academic + Core C++ Projects</h5>
               </div>
-              <h3>2020</h3>
+              <h3>2023</h3>
             </div>
             <p>
-              Built 6+ complete applications using React.js. Integrated backend
-              authentication using Node.js & MongoDB. Created responsive UI/UX
-              and designed wireframes using Figma.
+              Built data-structures and systems projects in C++, including
+              Solitaire, customer service modules, and assembly-based logic
+              games with focus on algorithms and performance.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Senior Full Stack Developer</h4>
-                <h5>Monocept (Max Life Insurance)</h5>
+                <h4>Full-Stack & Mobile Builder</h4>
+                <h5>CrisisConnect Ecosystem</h5>
               </div>
-              <h3>2021</h3>
+              <h3>2024</h3>
             </div>
             <p>
-              Led two development teams on Mpro, a large-scale insurance
-              operations platform. Developed multiple modules using React.js &
-              migrated critical functionalities to Node.js microservices.
+              Developed mobile and backend components for disaster support
+              workflows, including real-time alerts, response coordination, and
+              AI-assisted data processing services.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Full Stack Developer</h4>
-                <h5>Logic Loop</h5>
+                <h4>AI + Product Development</h4>
+                <h5>SkillSwap, ASL Translation, Voice Systems</h5>
               </div>
               <h3>NOW</h3>
             </div>
             <p>
-              Building Solid, a proprietary low-code platform using Angular,
-              Next.js & NestJS. Delivering production-ready CMS-based projects
-              including e-commerce, CRM, and import-export automation systems.
+              Building practical AI products and full-stack platforms with
+              React, Node.js, Python, and ML tooling, focused on accessibility,
+              peer learning, and human-centered software.
             </p>
           </div>
         </div>

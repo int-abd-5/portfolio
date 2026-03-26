@@ -37,7 +37,7 @@
 
 a.contact-social {
   font-size: 25px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--borderColor);
 }
 
 .contact-box h2 {

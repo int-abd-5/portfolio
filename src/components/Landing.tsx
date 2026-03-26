@@ -6,22 +6,30 @@ const Landing = ({ children }: PropsWithChildren) => {
     <>
       <div className="landing-section" id="landingDiv">
         <div className="landing-container">
+          <div className="landing-photo-wrap">
+            <div className="landing-photo-ring"></div>
+            <img
+              src="/images/abdullah.jpg"
+              alt="Abdullah Shahid portrait"
+              className="landing-photo"
+            />
+          </div>
           <div className="landing-intro">
             <h2>Hello! I'm</h2>
             <h1>
-              RAJESH
+              ABDULLAH
               <br />
-              <span>CHITYAL</span>
+              <span>SHAHID</span>
             </h1>
           </div>
           <div className="landing-info">
-            <h3>A Full Stack</h3>
+            <h3>CS @ FAST-NUCES</h3>
             <h2 className="landing-info-h2">
               <div className="landing-h2-1">Developer</div>
-              <div className="landing-h2-2">Engineer</div>
+              <div className="landing-h2-2">Builder</div>
             </h2>
             <h2>
-              <div className="landing-h2-info">Engineer</div>
+              <div className="landing-h2-info">Builder</div>
               <div className="landing-h2-info-1">Developer</div>
             </h2>
           </div>

@@ -44,14 +44,14 @@ export function setCharTimeline(
         child.material.opacity = 0;
         if (child.material.name === "Material.018") {
           monitor = child;
-          child.material.color.set("#FFFFFF");
+          child.material.color.set("#FFD6B8");
         }
       });
     }
     if (object.name === "screenlight") {
       object.material.transparent = true;
       object.material.opacity = 0;
-      object.material.emissive.set("#B0F5EA");
+      object.material.emissive.set("#FF886E");
       gsap.timeline({ repeat: -1, repeatRefresh: true }).to(object.material, {
         emissiveIntensity: () => intensity * 8,
         duration: () => Math.random() * 0.6,

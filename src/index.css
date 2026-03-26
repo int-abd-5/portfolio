@@ -1,14 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
 
 :root {
-  font-family: "Geist", sans-serif;
+  font-family: "Space Grotesk", "Geist", sans-serif;
 
   font-optical-sizing: auto;
   font-style: normal;
   line-height: 1.5;
   scroll-behavior: smooth;
-  color-scheme: light dark;
-  color: #eae5ec;
+  color-scheme: dark;
+  color: var(--textColor);
   background-color: var(--backgroundColor);
 
   font-synthesis: none;
@@ -18,8 +19,19 @@
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  --accentColor: #5eead4;
-  --backgroundColor: #0a0e17;
+  --accentColor: #ff8a5c;
+  --accentColorStrong: #ff5f6d;
+  --accentColorSoft: #ffd09b;
+  --neonColor: #ff4f88;
+  --textColor: #f9efe5;
+  --mutedText: #c7b3a7;
+  --borderColor: rgba(255, 255, 255, 0.16);
+  --backgroundColor: #120b1f;
+  --backgroundColor2: #241338;
+  --backgroundColor3: #3b1d38;
+  --panelColor: rgba(255, 255, 255, 0.04);
+  --panelHover: rgba(255, 255, 255, 0.08);
+  --glowColor: rgba(255, 126, 103, 0.42);
   --vh: 100vh;
   --vh: 100svh;
 }
@@ -66,7 +78,12 @@ main {
 body {
   margin: 0;
   height: auto;
-  background-color: #050810;
+  background-color: var(--backgroundColor);
+  background-image:
+    radial-gradient(circle at 12% 16%, rgba(255, 151, 92, 0.22) 0%, transparent 34%),
+    radial-gradient(circle at 78% 8%, rgba(255, 88, 122, 0.18) 0%, transparent 32%),
+    radial-gradient(circle at 85% 86%, rgba(255, 196, 119, 0.15) 0%, transparent 40%),
+    linear-gradient(145deg, #110a1d 0%, #1b1130 45%, #35162f 100%);
   flex-grow: 1;
   --cWidth: calc(100% - 30px);
   --cMaxWidth: 1920px;

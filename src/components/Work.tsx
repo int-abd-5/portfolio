@@ -5,34 +5,117 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
-    title: "Solid Starters",
-    category: "Low-Code Platform",
-    tools: "Angular, Next.js, NestJS, MongoDB",
+    title: "ASL to Voice and Voice to ASL",
+    category: "AI Accessibility",
+    tools: "JavaScript, ML, Computer Vision, Real-time Processing",
     image: "/images/Solidx.png",
+    link: "https://github.com/int-abd-5/ASL-to-Voice-and-Voice-to-ASL-in-Realtime_SignLanguage",
   },
   {
-    title: "Radix",
-    category: "E-Commerce",
-    tools: "Angular, Next.js, NestJS, CMS",
+    title: "SkillSwap (Peer Learning Platform)",
+    category: "Full-Stack Web App",
+    tools: "React, Node.js, MySQL, WebSockets",
     image: "/images/radix.png",
+    link: "https://github.com/int-abd-5/-SkillSwap-Peer-to-Peer-Skill-Exchange-Platform",
   },
   {
-    title: "Bond Cancellation",
-    category: "Import-Export Automation",
-    tools: "Angular, Next.js, NestJS, Workflows",
+    title: "CrisisConnect",
+    category: "Disaster Response Platform",
+    tools: "Kotlin, Android, Real-time Alerts",
     image: "/images/bond.png",
+    link: "https://github.com/int-abd-5/CrisisConnect",
   },
   {
-    title: "Sapphire",
-    category: "CRM Platform",
-    tools: "AngularJS, NestJS, PostgreSQL",
+    title: "CrisisNLP",
+    category: "AI/NLP Suite",
+    tools: "Python, Flask, Summarization, Data Extraction",
     image: "/images/sapphire.png",
+    link: "https://github.com/int-abd-5/CrisisNLP",
   },
   {
-    title: "Mpro",
-    category: "Insurance Platform",
-    tools: "React.js, Node.js, Microservices",
+    title: "Drawing Board in C++",
+    category: "Desktop Graphics App",
+    tools: "C++, SFML, Interactive Rendering",
     image: "/images/Maxlife.png",
+    link: "https://github.com/int-abd-5/Drawing-Board-in-c--",
+  },
+];
+
+const repositories = [
+  {
+    name: "ASL-to-Voice-and-Voice-to-ASL-in-Realtime_SignLanguage",
+    link: "https://github.com/int-abd-5/ASL-to-Voice-and-Voice-to-ASL-in-Realtime_SignLanguage",
+    language: "JavaScript",
+  },
+  {
+    name: "Drawing-Board-in-c--",
+    link: "https://github.com/int-abd-5/Drawing-Board-in-c--",
+    language: "C++",
+  },
+  {
+    name: "-SkillSwap-Peer-to-Peer-Skill-Exchange-Platform",
+    link: "https://github.com/int-abd-5/-SkillSwap-Peer-to-Peer-Skill-Exchange-Platform",
+    language: "Web",
+  },
+  {
+    name: "CrisisNLP",
+    link: "https://github.com/int-abd-5/CrisisNLP",
+    language: "Python",
+  },
+  {
+    name: "skillswapplatform",
+    link: "https://github.com/int-abd-5/skillswapplatform",
+    language: "TypeScript",
+  },
+  {
+    name: "Stt-Sign-Language-Model",
+    link: "https://github.com/int-abd-5/Stt-Sign-Language-Model",
+    language: "JavaScript",
+  },
+  {
+    name: "CrisisConnectData",
+    link: "https://github.com/int-abd-5/CrisisConnectData",
+    language: "Python",
+  },
+  {
+    name: "crisisconnectbackend",
+    link: "https://github.com/int-abd-5/crisisconnectbackend",
+    language: "Kotlin",
+  },
+  {
+    name: "Solitaire-Game-Implemented-Using-Data-structures",
+    link: "https://github.com/int-abd-5/Solitaire-Game-Implemented-Using-Data-structures",
+    language: "C++",
+  },
+  {
+    name: "CrisisConnect",
+    link: "https://github.com/int-abd-5/CrisisConnect",
+    language: "Kotlin",
+  },
+  {
+    name: "voice_sphere",
+    link: "https://github.com/int-abd-5/voice_sphere",
+    language: "Python",
+  },
+  {
+    name: "Catching-Alphabets-in-Assembly-Language",
+    link: "https://github.com/int-abd-5/Catching-Alphabets-in-Assembly-Language",
+    language: "Assembly",
+  },
+  {
+    name: "Customer-Service-Module",
+    link: "https://github.com/int-abd-5/Customer-Service-Module",
+    language: "C++",
+  },
+  {
+    name: "Flappy-bird-using-unity",
+    link: "https://github.com/int-abd-5/Flappy-bird-using-unity",
+    language: "Unity",
+  },
+  {
+    name: "Facebook-clone-",
+    link: "https://github.com/int-abd-5/Facebook-clone-",
+    language: "C++",
   },
 ];
 
@@ -115,7 +198,11 @@ const Work = () => {
                       </div>
                     </div>
                     <div className="carousel-image-wrapper">
-                      <WorkImage image={project.image} alt={project.title} />
+                      <WorkImage
+                        image={project.image}
+                        alt={project.title}
+                        link={project.link}
+                      />
                     </div>
                   </div>
                 </div>
@@ -134,6 +221,25 @@ const Work = () => {
                 aria-label={`Go to project ${index + 1}`}
                 data-cursor="disable"
               />
+            ))}
+          </div>
+        </div>
+
+        <div className="repo-list">
+          <h3>All GitHub Repositories</h3>
+          <div className="repo-grid">
+            {repositories.map((repo) => (
+              <a
+                className="repo-card"
+                href={repo.link}
+                target="_blank"
+                rel="noreferrer"
+                key={repo.name}
+                data-cursor="disable"
+              >
+                <h4>{repo.name}</h4>
+                <p>{repo.language}</p>
+              </a>
             ))}
           </div>
         </div>

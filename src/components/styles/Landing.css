@@ -14,6 +14,42 @@
   max-width: var(--cMaxWidth);
 }
 
+.landing-photo-wrap {
+  position: absolute;
+  left: 50%;
+  bottom: 5%;
+  transform: translateX(-50%);
+  width: min(340px, 65vw);
+  aspect-ratio: 4 / 5;
+  z-index: 8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-photo-ring {
+  position: absolute;
+  width: 82%;
+  height: 82%;
+  border-radius: 32px;
+  background: radial-gradient(circle at 25% 20%, var(--accentColorSoft) 0%, var(--accentColor) 42%, var(--backgroundColor3) 100%);
+  filter: blur(24px);
+  opacity: 0.58;
+  animation: profileGlow 3.2s ease-in-out infinite;
+}
+
+.landing-photo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 12%;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 157, 119, 0.45);
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.5);
+  animation: profileFloat 4s ease-in-out infinite;
+}
+
 .landing-circle1 {
   top: 0%;
   left: 0%;
@@ -21,8 +57,8 @@
   position: fixed;
   width: 300px;
   height: 300px;
-  background-color: #22d3ee;
-  box-shadow: inset -50px 40px 50px rgba(0, 180, 180, 0.6);
+  background-color: var(--accentColorStrong);
+  box-shadow: inset -50px 40px 50px rgba(255, 114, 108, 0.55);
   filter: blur(60px);
   border-radius: 50%;
   animation: loadingCircle 5s linear infinite;
@@ -52,6 +88,30 @@
   }
 }
 
+@keyframes profileFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes profileGlow {
+  0%,
+  100% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+}
+
 .landing-circle2 {
   top: 50%;
   right: 0%;
@@ -61,8 +121,8 @@
   display: none;
   width: 300px;
   height: 300px;
-  background-color: #22d3ee;
-  box-shadow: inset -50px 40px 50px rgba(0, 180, 180, 0.6);
+  background-color: var(--accentColor);
+  box-shadow: inset -50px 40px 50px rgba(255, 159, 94, 0.55);
   filter: blur(50px);
   border-radius: 50%;
   animation: loadingCircle2 5s linear infinite;
@@ -94,9 +154,9 @@
   width: 400px;
   height: 400px;
   z-index: 1;
-  background-color: #22d3ee;
+  background-color: var(--accentColor);
   transform: translate(-50%, 36%) scaleX(1.4);
-  box-shadow: inset 66px 35px 85px 0px rgba(0, 180, 180, 0.65);
+  box-shadow: inset 66px 35px 85px 0px rgba(255, 143, 108, 0.65);
   filter: blur(50px);
   border-radius: 50%;
   top: 50%;
@@ -234,7 +294,7 @@
 }
 
 h2.landing-info-h2 {
-  color: #14b8a6;
+  color: var(--accentColorStrong);
   font-size: 42px;
   width: 120%;
   margin: 0;
@@ -323,6 +383,12 @@ h2.landing-info-h2 {
 }
 
 @media screen and (min-width: 1025px) {
+  .landing-photo-wrap {
+    width: min(390px, 25vw);
+    bottom: 4%;
+    z-index: 12;
+  }
+
   .character-model {
     height: 100vh;
     bottom: 0;

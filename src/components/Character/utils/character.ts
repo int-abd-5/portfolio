@@ -31,16 +31,33 @@ const setCharacter = (
             character.traverse((child: any) => {
               if (child.isMesh) {
                 const mesh = child as THREE.Mesh;
+                const meshName = mesh.name.toLowerCase();
+
+                // Hide hat/cap geometry to better match Abdullah's look.
+                if (
+                  meshName.includes("hat") ||
+                  meshName.includes("cap") ||
+                  meshName.includes("helmet")
+                ) {
+                  mesh.visible = false;
+                  return;
+                }
 
                 // Change clothing colors to match site theme
                 if (mesh.material) {
-                  if (mesh.name === "BODY.SHIRT") { // The shirt mesh
+                  if (mesh.name === "BODY.SHIRT") {
                     const newMat = (mesh.material as THREE.Material).clone() as THREE.MeshStandardMaterial;
-                    newMat.color = new THREE.Color("#8B4513");
+                    newMat.color = new THREE.Color("#1C2A56");
+                    newMat.roughness = 0.84;
                     mesh.material = newMat;
-                  } else if (mesh.name === "Pant") {
+                  } else if (mesh.name === "Pant" || meshName.includes("pant")) {
                     const newMat = (mesh.material as THREE.Material).clone() as THREE.MeshStandardMaterial;
-                    newMat.color = new THREE.Color("#000000");
+                    newMat.color = new THREE.Color("#111A34");
+                    newMat.roughness = 0.92;
+                    mesh.material = newMat;
+                  } else if (meshName.includes("shoe") || meshName.includes("footwear")) {
+                    const newMat = (mesh.material as THREE.Material).clone() as THREE.MeshStandardMaterial;
+                    newMat.color = new THREE.Color("#2A1A1A");
                     mesh.material = newMat;
                   }
                 }
