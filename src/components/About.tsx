@@ -7,9 +7,10 @@ const About = () => {
         <h3 className="title">About Me</h3>
         <p className="para">
           I am Abdullah Shahid, a Computer Science student at FAST-NUCES and a
-          full-stack developer who enjoys building real-world systems. My work
-          spans AI/ML, web platforms, game development, and mobile apps using
-          C++, Python, React, TypeScript, Kotlin, and Unity.
+          full-stack builder focused on AI systems and DevOps-driven delivery.
+          My projects combine machine learning, real-time communication, and
+          automation pipelines using Python, React, TypeScript, Docker, CI/CD,
+          and cloud-native practices.
         </p>
       </div>
     </div>

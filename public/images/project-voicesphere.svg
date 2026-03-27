@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#150d28"/>
+  <path d="M180 650c180-280 380-280 560 0s380 280 560 0" fill="none" stroke="#ff6f61" stroke-width="18" stroke-linecap="round"/>
+  <path d="M180 540c180-280 380-280 560 0s380 280 560 0" fill="none" stroke="#ffbf96" stroke-width="10" stroke-linecap="round" opacity="0.8"/>
+  <text x="120" y="300" fill="#ffe7d2" font-size="84" font-family="Space Grotesk, Arial" font-weight="700">Voice Sphere</text>
+  <text x="120" y="390" fill="#ffbf96" font-size="42" font-family="Space Grotesk, Arial">Conversational AI Assistant</text>
+</svg>

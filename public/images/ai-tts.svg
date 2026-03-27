@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" rx="220" fill="#201233"/>
+  <circle cx="512" cy="512" r="324" fill="#ff8d5e" opacity="0.2"/>
+  <rect x="280" y="332" width="180" height="360" rx="90" fill="#ffd2a2"/>
+  <path d="M514 404c85 18 142 65 171 141-29 74-86 121-171 141" fill="none" stroke="#ff5f6d" stroke-width="46" stroke-linecap="round"/>
+  <text x="512" y="835" text-anchor="middle" font-family="Space Grotesk, Arial" font-size="118" fill="#ffe8d2" font-weight="700">TTS</text>
+</svg>

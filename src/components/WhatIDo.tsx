@@ -87,23 +87,24 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
 
             <div className="what-content-in">
-              <h3>FRONTEND</h3>
-              <h4>Building Interactive UIs</h4>
+              <h3>AI + DEVOPS</h3>
+              <h4>Production AI Systems & Delivery Pipelines</h4>
               <p>
-                Crafting performant, responsive interfaces with modern frameworks.
-                From SPAs to micro-frontends, I deliver pixel-perfect experiences.
+                Building applied AI products with reliable infrastructure.
+                I design speech/sign pipelines, NLP services, and automate
+                shipping through CI/CD and containerized environments.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">React.js</div>
-                <div className="what-tags">TypeScript</div>
-                <div className="what-tags">JavaScript</div>
-                <div className="what-tags">HTML5</div>
-                <div className="what-tags">CSS3</div>
-                <div className="what-tags">UI/UX</div>
-                <div className="what-tags">Socket.IO</div>
-                <div className="what-tags">Unity UI</div>
-                <div className="what-tags">Figma</div>
+                <div className="what-tags">OpenAI APIs</div>
+                <div className="what-tags">LangChain</div>
+                <div className="what-tags">Speech-to-Text</div>
+                <div className="what-tags">Text-to-Speech</div>
+                <div className="what-tags">Docker</div>
+                <div className="what-tags">Jenkins</div>
+                <div className="what-tags">GitHub Actions</div>
+                <div className="what-tags">Kubernetes</div>
+                <div className="what-tags">MLOps</div>
               </div>
               <div className="what-arrow"></div>
             </div>
@@ -127,22 +128,25 @@ const WhatIDo = () => {
             </div>
             <div className="what-corner"></div>
             <div className="what-content-in">
-              <h3>BACKEND</h3>
-              <h4>Scalable Server Architecture</h4>
+              <h3>FULL-STACK ENGINEERING</h3>
+              <h4>Scalable Products from UI to Backend</h4>
               <p>
-                Designing robust APIs and microservices. From CMS platforms to
-                complex business logic, I build backends that scale.
+                Building end-to-end products with real-time interfaces,
+                service-oriented APIs, and resilient data workflows across web
+                and mobile experiences.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
+                <div className="what-tags">React.js</div>
+                <div className="what-tags">TypeScript</div>
+                <div className="what-tags">Kotlin</div>
                 <div className="what-tags">Node.js</div>
                 <div className="what-tags">Express.js</div>
                 <div className="what-tags">MongoDB</div>
                 <div className="what-tags">MySQL</div>
                 <div className="what-tags">REST APIs</div>
                 <div className="what-tags">Microservices</div>
-                <div className="what-tags">Python</div>
-                <div className="what-tags">Flask</div>
+                <div className="what-tags">WebSockets</div>
               </div>
               <div className="what-arrow"></div>
             </div>

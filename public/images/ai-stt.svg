@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" rx="220" fill="#1a1027"/>
+  <rect x="350" y="230" width="324" height="460" rx="162" fill="#ff7f65"/>
+  <rect x="470" y="640" width="84" height="160" rx="42" fill="#ffd2a2"/>
+  <path d="M290 492c0 115 92 207 207 207s207-92 207-207" fill="none" stroke="#ffd2a2" stroke-width="38" stroke-linecap="round"/>
+  <text x="512" y="880" text-anchor="middle" font-family="Space Grotesk, Arial" font-size="118" fill="#ffe8d2" font-weight="700">STT</text>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" rx="220" fill="#191129"/>
+  <path d="M512 174l210 121v243L512 660 302 538V295z" fill="#ff6f61" opacity="0.85"/>
+  <path d="M512 266l132 76v153L512 571 380 495V342z" fill="#ffd2a2"/>
+  <text x="512" y="815" text-anchor="middle" font-family="Space Grotesk, Arial" font-size="112" fill="#ffe8d2" font-weight="700">OPENAI</text>
+</svg>

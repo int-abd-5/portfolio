@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#1a1230"/>
+  <circle cx="440" cy="460" r="210" fill="#ff8a5c" opacity="0.3"/>
+  <circle cx="820" cy="460" r="210" fill="#ff4f88" opacity="0.3"/>
+  <circle cx="1200" cy="460" r="210" fill="#ffd09b" opacity="0.25"/>
+  <text x="120" y="300" fill="#ffe7d2" font-size="82" font-family="Space Grotesk, Arial" font-weight="700">SkillSwap</text>
+  <text x="120" y="380" fill="#ffbf96" font-size="40" font-family="Space Grotesk, Arial">Matching, Chat, Ratings, Gamification</text>
+</svg>

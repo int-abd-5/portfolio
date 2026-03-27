@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" rx="220" fill="#1a1230"/>
+  <polygon points="512,220 755,365 755,658 512,804 269,658 269,365" fill="#ff8a5c" opacity="0.9"/>
+  <polygon points="512,310 675,407 675,615 512,712 349,615 349,407" fill="#ffd2a2"/>
+  <text x="512" y="900" text-anchor="middle" font-family="Space Grotesk, Arial" font-size="88" fill="#ffe8d2" font-weight="700">KUBERNETES</text>
+</svg>

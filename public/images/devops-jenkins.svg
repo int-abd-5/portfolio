@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" rx="220" fill="#1a122b"/>
+  <circle cx="512" cy="512" r="320" fill="#ff5f6d" opacity="0.2"/>
+  <path d="M334 668l178-378 178 378" fill="none" stroke="#ffd2a2" stroke-width="72" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="512" cy="522" r="70" fill="#ff8a5c"/>
+  <text x="512" y="880" text-anchor="middle" font-family="Space Grotesk, Arial" font-size="102" fill="#ffe8d2" font-weight="700">JENKINS</text>
+</svg>
