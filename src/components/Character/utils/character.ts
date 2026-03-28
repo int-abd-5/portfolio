@@ -3,73 +3,105 @@ import { DRACOLoader, GLTF, GLTFLoader } from "three-stdlib";
 import { setCharTimeline, setAllTimeline } from "../../utils/GsapScroll";
 import { decryptFile } from "./decrypt";
 
+const findHeadAnchor = (character: THREE.Object3D) => {
+  const preferred = [
+    "head",
+    "Head",
+    "spine006",
+    "spine005",
+    "neck",
+    "Neck",
+  ];
+  for (const name of preferred) {
+    const found = character.getObjectByName(name);
+    if (found) return found;
+  }
+
+  let fallback: THREE.Object3D | null = null;
+  character.traverse((obj: any) => {
+    if (fallback) return;
+    if (obj?.isBone && typeof obj.name === "string") {
+      const n = obj.name.toLowerCase();
+      if (n.includes("head") || n.includes("neck")) {
+        fallback = obj;
+      }
+    }
+  });
+  return fallback ?? character;
+};
+
 const addHairLayer = (character: THREE.Object3D) => {
   if (character.getObjectByName("abdullah_custom_hair")) return;
 
-  const headAnchor =
-    character.getObjectByName("spine006") ||
-    character.getObjectByName("head") ||
-    character.getObjectByName("Head");
+  const headAnchor = findHeadAnchor(character);
 
   if (!headAnchor) return;
 
   const hairMaterial = new THREE.MeshStandardMaterial({
     color: new THREE.Color("#1f1725"),
-    roughness: 0.58,
-    metalness: 0.18,
+    roughness: 0.52,
+    metalness: 0.14,
+    emissive: new THREE.Color("#09070d"),
+    emissiveIntensity: 0.35,
+    side: THREE.DoubleSide,
   });
 
   const hairGroup = new THREE.Group();
   hairGroup.name = "abdullah_custom_hair";
 
   const topHair = new THREE.Mesh(
-    new THREE.SphereGeometry(0.53, 24, 20, 0, Math.PI * 2, 0, Math.PI * 0.57),
+    new THREE.SphereGeometry(0.66, 26, 22, 0, Math.PI * 2, 0, Math.PI * 0.6),
     hairMaterial
   );
-  topHair.position.set(0, 0.42, 0.03);
-  topHair.scale.set(1.04, 0.7, 0.98);
+  topHair.position.set(0, 0.78, 0.1);
+  topHair.scale.set(1.18, 0.78, 1.05);
   topHair.castShadow = true;
+  topHair.frustumCulled = false;
 
   const leftTop = new THREE.Mesh(
-    new THREE.SphereGeometry(0.26, 16, 12),
+    new THREE.SphereGeometry(0.34, 18, 14),
     hairMaterial
   );
-  leftTop.position.set(-0.24, 0.48, 0.09);
-  leftTop.scale.set(0.95, 0.75, 0.85);
+  leftTop.position.set(-0.34, 0.84, 0.16);
+  leftTop.scale.set(1, 0.8, 0.9);
   leftTop.castShadow = true;
+  leftTop.frustumCulled = false;
 
   const rightTop = leftTop.clone();
-  rightTop.position.x = 0.24;
+  rightTop.position.x = 0.34;
 
   const fringeCenter = new THREE.Mesh(
-    new THREE.SphereGeometry(0.22, 16, 12),
+    new THREE.SphereGeometry(0.28, 18, 14),
     hairMaterial
   );
-  fringeCenter.position.set(0, 0.18, 0.31);
-  fringeCenter.scale.set(1, 0.42, 0.55);
+  fringeCenter.position.set(0, 0.45, 0.54);
+  fringeCenter.scale.set(1.1, 0.45, 0.65);
   fringeCenter.castShadow = true;
+  fringeCenter.frustumCulled = false;
 
   const fringeLeft = new THREE.Mesh(
-    new THREE.SphereGeometry(0.2, 14, 10),
+    new THREE.SphereGeometry(0.22, 14, 10),
     hairMaterial
   );
-  fringeLeft.position.set(-0.16, 0.2, 0.29);
-  fringeLeft.scale.set(0.7, 0.42, 0.5);
+  fringeLeft.position.set(-0.22, 0.47, 0.49);
+  fringeLeft.scale.set(0.74, 0.43, 0.55);
   fringeLeft.castShadow = true;
+  fringeLeft.frustumCulled = false;
 
   const fringeRight = fringeLeft.clone();
   fringeRight.position.x = 0.16;
 
   const leftSide = new THREE.Mesh(
-    new THREE.SphereGeometry(0.2, 16, 12),
+    new THREE.SphereGeometry(0.26, 16, 12),
     hairMaterial
   );
-  leftSide.position.set(-0.29, 0.13, 0.04);
-  leftSide.scale.set(0.72, 1.04, 0.6);
+  leftSide.position.set(-0.42, 0.45, 0.05);
+  leftSide.scale.set(0.74, 1.08, 0.66);
   leftSide.castShadow = true;
+  leftSide.frustumCulled = false;
 
   const rightSide = leftSide.clone();
-  rightSide.position.x = 0.28;
+  rightSide.position.x = 0.42;
 
   hairGroup.add(
     topHair,
@@ -87,37 +119,39 @@ const addHairLayer = (character: THREE.Object3D) => {
 const addFacialHairDetails = (character: THREE.Object3D) => {
   if (character.getObjectByName("abdullah_custom_beard")) return;
 
-  const headAnchor =
-    character.getObjectByName("spine006") ||
-    character.getObjectByName("head") ||
-    character.getObjectByName("Head");
+  const headAnchor = findHeadAnchor(character);
 
   if (!headAnchor) return;
 
   const beardMaterial = new THREE.MeshStandardMaterial({
-    color: new THREE.Color("#221922"),
-    roughness: 0.74,
+    color: new THREE.Color("#2b1f1b"),
+    roughness: 0.7,
     metalness: 0.08,
+    emissive: new THREE.Color("#100c0a"),
+    emissiveIntensity: 0.28,
+    side: THREE.DoubleSide,
   });
 
   const beardGroup = new THREE.Group();
   beardGroup.name = "abdullah_custom_beard";
 
   const mustache = new THREE.Mesh(
-    new THREE.SphereGeometry(0.08, 14, 10),
+    new THREE.SphereGeometry(0.12, 14, 10),
     beardMaterial
   );
-  mustache.position.set(0, -0.04, 0.42);
-  mustache.scale.set(1.6, 0.35, 0.45);
+  mustache.position.set(0, 0.02, 0.56);
+  mustache.scale.set(1.8, 0.36, 0.5);
   mustache.castShadow = true;
+  mustache.frustumCulled = false;
 
   const chinPatch = new THREE.Mesh(
-    new THREE.SphereGeometry(0.07, 14, 10),
+    new THREE.SphereGeometry(0.09, 14, 10),
     beardMaterial
   );
-  chinPatch.position.set(0, -0.22, 0.37);
-  chinPatch.scale.set(1, 0.5, 0.4);
+  chinPatch.position.set(0, -0.25, 0.54);
+  chinPatch.scale.set(1.05, 0.48, 0.4);
   chinPatch.castShadow = true;
+  chinPatch.frustumCulled = false;
 
   beardGroup.add(mustache, chinPatch);
   headAnchor.add(beardGroup);

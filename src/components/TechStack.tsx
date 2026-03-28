@@ -13,21 +13,20 @@ import {
 
 const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
-  "/images/react2.webp",
-  "/images/node2.webp",
-  "/images/typescript.webp",
-  "/images/mongo.webp",
-  "/images/mysql.webp",
-  "/images/ai-openai.svg",
-  "/images/ai-langchain.svg",
-  "/images/ai-stt.svg",
-  "/images/ai-tts.svg",
-  "/images/devops-docker.svg",
-  "/images/devops-jenkins.svg",
-  "/images/devops-kubernetes.svg",
-  "/images/devops-ghactions.svg",
-  "/images/express.webp",
-  "/images/javascript.webp"
+  "/images/stack-openai.svg",
+  "/images/stack-langchain.svg",
+  "/images/stack-stt.svg",
+  "/images/stack-tts.svg",
+  "/images/stack-docker.svg",
+  "/images/stack-jenkins.svg",
+  "/images/stack-kubernetes.svg",
+  "/images/stack-ghactions.svg",
+  "/images/stack-react.svg",
+  "/images/stack-node.svg",
+  "/images/stack-typescript.svg",
+  "/images/stack-python.svg",
+  "/images/stack-mongodb.svg",
+  "/images/stack-mysql.svg",
 ];
 const textures = imageUrls.map((url) => textureLoader.load(url));
 

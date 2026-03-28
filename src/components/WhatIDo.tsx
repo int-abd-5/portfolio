@@ -98,8 +98,10 @@ const WhatIDo = () => {
               <div className="what-content-flex">
                 <div className="what-tags">OpenAI APIs</div>
                 <div className="what-tags">LangChain</div>
+                <div className="what-tags">Prompt Engineering</div>
                 <div className="what-tags">Speech-to-Text</div>
                 <div className="what-tags">Text-to-Speech</div>
+                <div className="what-tags">RAG Pipelines</div>
                 <div className="what-tags">Docker</div>
                 <div className="what-tags">Jenkins</div>
                 <div className="what-tags">GitHub Actions</div>
@@ -139,6 +141,7 @@ const WhatIDo = () => {
               <div className="what-content-flex">
                 <div className="what-tags">React.js</div>
                 <div className="what-tags">TypeScript</div>
+                <div className="what-tags">Next.js</div>
                 <div className="what-tags">Kotlin</div>
                 <div className="what-tags">Node.js</div>
                 <div className="what-tags">Express.js</div>
@@ -147,6 +150,7 @@ const WhatIDo = () => {
                 <div className="what-tags">REST APIs</div>
                 <div className="what-tags">Microservices</div>
                 <div className="what-tags">WebSockets</div>
+                <div className="what-tags">System Design</div>
               </div>
               <div className="what-arrow"></div>
             </div>

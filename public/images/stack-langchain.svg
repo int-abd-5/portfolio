@@ -1,0 +1,13 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1024' height='1024' viewBox='0 0 1024 1024'>
+  <defs>
+    <linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#ff9a63'/>
+      <stop offset='100%' stop-color='#ff6f61'/>
+    </linearGradient>
+  </defs>
+  <rect width='1024' height='1024' rx='220' fill='#171024'/>
+  <circle cx='512' cy='460' r='300' fill='url(#g)' opacity='0.3'/>
+  <circle cx='512' cy='460' r='245' fill='none' stroke='rgba(255,226,197,0.45)' stroke-width='16'/>
+  <text x='512' y='500' text-anchor='middle' font-family='Space Grotesk, Arial' font-size='150' fill='#ffe7d2' font-weight='700'>LC</text>
+  <text x='512' y='760' text-anchor='middle' font-family='Space Grotesk, Arial' font-size='62' fill='#ffcfaa' font-weight='600'>LANGCHAIN</text>
+</svg>
