@@ -116,47 +116,6 @@ const addHairLayer = (character: THREE.Object3D) => {
   headAnchor.add(hairGroup);
 };
 
-const addFacialHairDetails = (character: THREE.Object3D) => {
-  if (character.getObjectByName("abdullah_custom_beard")) return;
-
-  const headAnchor = findHeadAnchor(character);
-
-  if (!headAnchor) return;
-
-  const beardMaterial = new THREE.MeshStandardMaterial({
-    color: new THREE.Color("#2b1f1b"),
-    roughness: 0.7,
-    metalness: 0.08,
-    emissive: new THREE.Color("#100c0a"),
-    emissiveIntensity: 0.28,
-    side: THREE.DoubleSide,
-  });
-
-  const beardGroup = new THREE.Group();
-  beardGroup.name = "abdullah_custom_beard";
-
-  const mustache = new THREE.Mesh(
-    new THREE.SphereGeometry(0.12, 14, 10),
-    beardMaterial
-  );
-  mustache.position.set(0, 0.02, 0.56);
-  mustache.scale.set(1.8, 0.36, 0.5);
-  mustache.castShadow = true;
-  mustache.frustumCulled = false;
-
-  const chinPatch = new THREE.Mesh(
-    new THREE.SphereGeometry(0.09, 14, 10),
-    beardMaterial
-  );
-  chinPatch.position.set(0, -0.25, 0.54);
-  chinPatch.scale.set(1.05, 0.48, 0.4);
-  chinPatch.castShadow = true;
-  chinPatch.frustumCulled = false;
-
-  beardGroup.add(mustache, chinPatch);
-  headAnchor.add(beardGroup);
-};
-
 const applyFitBodyProportions = (character: THREE.Object3D) => {
   const scaleBone = (name: string, x: number, y: number, z: number) => {
     const bone = character.getObjectByName(name);
@@ -165,15 +124,15 @@ const applyFitBodyProportions = (character: THREE.Object3D) => {
     }
   };
 
-  scaleBone("spine006", 0.97, 1.02, 0.97);
-  scaleBone("spine005", 1.01, 1.04, 1.01);
-  scaleBone("spine004", 1.05, 1.04, 1.04);
-  scaleBone("spine003", 1.03, 1.02, 1.03);
-  scaleBone("spine002", 0.96, 1.02, 0.96);
-  scaleBone("upper_armL", 1.06, 1.03, 1.03);
-  scaleBone("upper_armR", 1.06, 1.03, 1.03);
-  scaleBone("thighL", 1.03, 1.02, 1.03);
-  scaleBone("thighR", 1.03, 1.02, 1.03);
+  scaleBone("spine006", 0.97, 1.02, 0.96);
+  scaleBone("spine005", 0.98, 1.03, 0.97);
+  scaleBone("spine004", 0.94, 1.04, 0.94);
+  scaleBone("spine003", 0.93, 1.02, 0.93);
+  scaleBone("spine002", 0.9, 1.01, 0.9);
+  scaleBone("upper_armL", 0.95, 1.02, 0.95);
+  scaleBone("upper_armR", 0.95, 1.02, 0.95);
+  scaleBone("thighL", 0.98, 1.01, 0.98);
+  scaleBone("thighR", 0.98, 1.01, 0.98);
 };
 
 const setCharacter = (
@@ -200,20 +159,38 @@ const setCharacter = (
           blobUrl,
           async (gltf) => {
             character = gltf.scene;
+            let hasNativeHair = false;
             await renderer.compileAsync(character, camera, scene);
             character.traverse((child: any) => {
               if (child.isMesh) {
                 const mesh = child as THREE.Mesh;
                 const meshName = mesh.name.toLowerCase();
 
-                // Hide hat/cap geometry to better match Abdullah's look.
+                // Hide hat-style accessories.
                 if (
                   meshName.includes("hat") ||
-                  meshName.includes("cap") ||
                   meshName.includes("helmet")
                 ) {
                   mesh.visible = false;
                   return;
+                }
+
+                // Keep hair/cap-like meshes visible and style them as natural hair.
+                if (meshName.includes("hair") || meshName.includes("cap")) {
+                  hasNativeHair = true;
+                  mesh.visible = true;
+                  mesh.scale.set(
+                    mesh.scale.x * 1.06,
+                    mesh.scale.y * 1.16,
+                    mesh.scale.z * 1.08
+                  );
+                  if (mesh.material) {
+                    const hairMat = (mesh.material as THREE.Material).clone() as THREE.MeshStandardMaterial;
+                    hairMat.color = new THREE.Color("#1d151f");
+                    hairMat.roughness = 0.5;
+                    hairMat.metalness = 0.12;
+                    mesh.material = hairMat;
+                  }
                 }
 
                 // Change clothing colors to match site theme
@@ -242,8 +219,9 @@ const setCharacter = (
             });
 
             applyFitBodyProportions(character);
-            addHairLayer(character);
-            addFacialHairDetails(character);
+            if (!hasNativeHair) {
+              addHairLayer(character);
+            }
 
             resolve(gltf);
             setCharTimeline(character, camera);

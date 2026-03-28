@@ -151,6 +151,10 @@ const WhatIDo = () => {
                 <div className="what-tags">Microservices</div>
                 <div className="what-tags">WebSockets</div>
                 <div className="what-tags">System Design</div>
+                <div className="what-tags">Postman</div>
+                <div className="what-tags">Prisma</div>
+                <div className="what-tags">Redis</div>
+                <div className="what-tags">GraphQL</div>
               </div>
               <div className="what-arrow"></div>
             </div>
