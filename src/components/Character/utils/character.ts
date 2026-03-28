@@ -38,11 +38,11 @@ const addHairLayer = (character: THREE.Object3D) => {
   if (!headAnchor) return;
 
   const hairMaterial = new THREE.MeshStandardMaterial({
-    color: new THREE.Color("#1f1725"),
-    roughness: 0.52,
-    metalness: 0.14,
+    color: new THREE.Color("#201820"),
+    roughness: 0.46,
+    metalness: 0.1,
     emissive: new THREE.Color("#09070d"),
-    emissiveIntensity: 0.35,
+    emissiveIntensity: 0.2,
     side: THREE.DoubleSide,
   });
 
@@ -53,8 +53,8 @@ const addHairLayer = (character: THREE.Object3D) => {
     new THREE.SphereGeometry(0.66, 26, 22, 0, Math.PI * 2, 0, Math.PI * 0.6),
     hairMaterial
   );
-  topHair.position.set(0, 0.78, 0.1);
-  topHair.scale.set(1.18, 0.78, 1.05);
+  topHair.position.set(0, 0.82, 0.08);
+  topHair.scale.set(1.12, 0.72, 1.03);
   topHair.castShadow = true;
   topHair.frustumCulled = false;
 
@@ -62,20 +62,20 @@ const addHairLayer = (character: THREE.Object3D) => {
     new THREE.SphereGeometry(0.34, 18, 14),
     hairMaterial
   );
-  leftTop.position.set(-0.34, 0.84, 0.16);
-  leftTop.scale.set(1, 0.8, 0.9);
+  leftTop.position.set(-0.31, 0.85, 0.14);
+  leftTop.scale.set(0.95, 0.78, 0.88);
   leftTop.castShadow = true;
   leftTop.frustumCulled = false;
 
   const rightTop = leftTop.clone();
-  rightTop.position.x = 0.34;
+  rightTop.position.x = 0.31;
 
   const fringeCenter = new THREE.Mesh(
     new THREE.SphereGeometry(0.28, 18, 14),
     hairMaterial
   );
-  fringeCenter.position.set(0, 0.45, 0.54);
-  fringeCenter.scale.set(1.1, 0.45, 0.65);
+  fringeCenter.position.set(0, 0.52, 0.48);
+  fringeCenter.scale.set(1.06, 0.42, 0.58);
   fringeCenter.castShadow = true;
   fringeCenter.frustumCulled = false;
 
@@ -83,25 +83,25 @@ const addHairLayer = (character: THREE.Object3D) => {
     new THREE.SphereGeometry(0.22, 14, 10),
     hairMaterial
   );
-  fringeLeft.position.set(-0.22, 0.47, 0.49);
-  fringeLeft.scale.set(0.74, 0.43, 0.55);
+  fringeLeft.position.set(-0.2, 0.54, 0.43);
+  fringeLeft.scale.set(0.68, 0.4, 0.5);
   fringeLeft.castShadow = true;
   fringeLeft.frustumCulled = false;
 
   const fringeRight = fringeLeft.clone();
-  fringeRight.position.x = 0.16;
+  fringeRight.position.x = 0.2;
 
   const leftSide = new THREE.Mesh(
     new THREE.SphereGeometry(0.26, 16, 12),
     hairMaterial
   );
-  leftSide.position.set(-0.42, 0.45, 0.05);
-  leftSide.scale.set(0.74, 1.08, 0.66);
+  leftSide.position.set(-0.36, 0.52, 0.03);
+  leftSide.scale.set(0.66, 0.95, 0.58);
   leftSide.castShadow = true;
   leftSide.frustumCulled = false;
 
   const rightSide = leftSide.clone();
-  rightSide.position.x = 0.42;
+  rightSide.position.x = 0.36;
 
   hairGroup.add(
     topHair,
@@ -159,7 +159,6 @@ const setCharacter = (
           blobUrl,
           async (gltf) => {
             character = gltf.scene;
-            let hasNativeHair = false;
             await renderer.compileAsync(character, camera, scene);
             character.traverse((child: any) => {
               if (child.isMesh) {
@@ -169,28 +168,11 @@ const setCharacter = (
                 // Hide hat-style accessories.
                 if (
                   meshName.includes("hat") ||
+                  meshName.includes("cap") ||
                   meshName.includes("helmet")
                 ) {
                   mesh.visible = false;
                   return;
-                }
-
-                // Keep hair/cap-like meshes visible and style them as natural hair.
-                if (meshName.includes("hair") || meshName.includes("cap")) {
-                  hasNativeHair = true;
-                  mesh.visible = true;
-                  mesh.scale.set(
-                    mesh.scale.x * 1.06,
-                    mesh.scale.y * 1.16,
-                    mesh.scale.z * 1.08
-                  );
-                  if (mesh.material) {
-                    const hairMat = (mesh.material as THREE.Material).clone() as THREE.MeshStandardMaterial;
-                    hairMat.color = new THREE.Color("#1d151f");
-                    hairMat.roughness = 0.5;
-                    hairMat.metalness = 0.12;
-                    mesh.material = hairMat;
-                  }
                 }
 
                 // Change clothing colors to match site theme
@@ -219,9 +201,7 @@ const setCharacter = (
             });
 
             applyFitBodyProportions(character);
-            if (!hasNativeHair) {
-              addHairLayer(character);
-            }
+            addHairLayer(character);
 
             resolve(gltf);
             setCharTimeline(character, camera);

@@ -112,7 +112,7 @@ const WhatIDo = () => {
             </div>
           </div>
           <div
-            className="what-content what-noTouch"
+            className="what-content what-noTouch what-content-active"
             ref={(el) => setRef(el, 1)}
           >
             <div className="what-border1">
