@@ -38,70 +38,61 @@ const addHairLayer = (character: THREE.Object3D) => {
   if (!headAnchor) return;
 
   const hairMaterial = new THREE.MeshStandardMaterial({
-    color: new THREE.Color("#201820"),
-    roughness: 0.46,
-    metalness: 0.1,
+    color: new THREE.Color("#1c131c"),
+    roughness: 0.42,
+    metalness: 0.06,
     emissive: new THREE.Color("#09070d"),
-    emissiveIntensity: 0.2,
+    emissiveIntensity: 0.12,
     side: THREE.DoubleSide,
   });
 
   const hairGroup = new THREE.Group();
   hairGroup.name = "abdullah_custom_hair";
 
-  const topHair = new THREE.Mesh(
-    new THREE.SphereGeometry(0.66, 26, 22, 0, Math.PI * 2, 0, Math.PI * 0.6),
-    hairMaterial
-  );
-  topHair.position.set(0, 0.82, 0.08);
-  topHair.scale.set(1.12, 0.72, 1.03);
+  const topHair = new THREE.Mesh(new THREE.SphereGeometry(0.78, 28, 24), hairMaterial);
+  topHair.position.set(0, 0.98, 0.03);
+  topHair.scale.set(1.14, 0.56, 1.08);
   topHair.castShadow = true;
   topHair.frustumCulled = false;
 
-  const leftTop = new THREE.Mesh(
-    new THREE.SphereGeometry(0.34, 18, 14),
-    hairMaterial
-  );
-  leftTop.position.set(-0.31, 0.85, 0.14);
-  leftTop.scale.set(0.95, 0.78, 0.88);
+  const leftTop = new THREE.Mesh(new THREE.SphereGeometry(0.36, 20, 16), hairMaterial);
+  leftTop.position.set(-0.32, 0.95, 0.12);
+  leftTop.scale.set(0.9, 0.75, 0.84);
   leftTop.castShadow = true;
   leftTop.frustumCulled = false;
 
   const rightTop = leftTop.clone();
   rightTop.position.x = 0.31;
 
-  const fringeCenter = new THREE.Mesh(
-    new THREE.SphereGeometry(0.28, 18, 14),
-    hairMaterial
-  );
-  fringeCenter.position.set(0, 0.52, 0.48);
-  fringeCenter.scale.set(1.06, 0.42, 0.58);
+  const fringeCenter = new THREE.Mesh(new THREE.SphereGeometry(0.32, 18, 14), hairMaterial);
+  fringeCenter.position.set(0, 0.58, 0.44);
+  fringeCenter.scale.set(1.08, 0.34, 0.5);
   fringeCenter.castShadow = true;
   fringeCenter.frustumCulled = false;
 
-  const fringeLeft = new THREE.Mesh(
-    new THREE.SphereGeometry(0.22, 14, 10),
-    hairMaterial
-  );
-  fringeLeft.position.set(-0.2, 0.54, 0.43);
-  fringeLeft.scale.set(0.68, 0.4, 0.5);
+  const fringeLeft = new THREE.Mesh(new THREE.SphereGeometry(0.2, 14, 10), hairMaterial);
+  fringeLeft.position.set(-0.23, 0.59, 0.38);
+  fringeLeft.scale.set(0.62, 0.34, 0.44);
   fringeLeft.castShadow = true;
   fringeLeft.frustumCulled = false;
 
   const fringeRight = fringeLeft.clone();
   fringeRight.position.x = 0.2;
 
-  const leftSide = new THREE.Mesh(
-    new THREE.SphereGeometry(0.26, 16, 12),
-    hairMaterial
-  );
-  leftSide.position.set(-0.36, 0.52, 0.03);
-  leftSide.scale.set(0.66, 0.95, 0.58);
+  const leftSide = new THREE.Mesh(new THREE.SphereGeometry(0.24, 16, 12), hairMaterial);
+  leftSide.position.set(-0.35, 0.63, 0.0);
+  leftSide.scale.set(0.58, 0.82, 0.5);
   leftSide.castShadow = true;
   leftSide.frustumCulled = false;
 
   const rightSide = leftSide.clone();
   rightSide.position.x = 0.36;
+
+  const crownSpike = new THREE.Mesh(new THREE.ConeGeometry(0.16, 0.34, 16), hairMaterial);
+  crownSpike.position.set(0.02, 1.18, 0.05);
+  crownSpike.rotation.set(0.12, 0.05, -0.08);
+  crownSpike.castShadow = true;
+  crownSpike.frustumCulled = false;
 
   hairGroup.add(
     topHair,
@@ -111,7 +102,8 @@ const addHairLayer = (character: THREE.Object3D) => {
     fringeLeft,
     fringeRight,
     leftSide,
-    rightSide
+    rightSide,
+    crownSpike
   );
   headAnchor.add(hairGroup);
 };

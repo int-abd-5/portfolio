@@ -142,6 +142,8 @@ const WhatIDo = () => {
                 <div className="what-tags">React.js</div>
                 <div className="what-tags">TypeScript</div>
                 <div className="what-tags">Next.js</div>
+                <div className="what-tags">Vite</div>
+                <div className="what-tags">Tailwind CSS</div>
                 <div className="what-tags">Kotlin</div>
                 <div className="what-tags">Node.js</div>
                 <div className="what-tags">Express.js</div>
@@ -155,6 +157,7 @@ const WhatIDo = () => {
                 <div className="what-tags">Prisma</div>
                 <div className="what-tags">Redis</div>
                 <div className="what-tags">GraphQL</div>
+                <div className="what-tags">JWT Auth</div>
               </div>
               <div className="what-arrow"></div>
             </div>
